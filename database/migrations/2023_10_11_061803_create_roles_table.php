@@ -16,7 +16,8 @@ class CreateRolesTable extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id()->comment("編號(主鍵)");
             $table->string('name')->comment("角色名稱");
-            $table->tinyInteger('aid')->comment("區域編號")->unsigned();
+            $table->foreignId('aid')->comment("區域編號(外部鍵)")->unsigned();
+            $table->foreign('aid')->references('id')->on('areas')->onDelete('cascade');
             $table->tinyInteger('stars')->comment("星數")->unsigned();
             $table->string('property')->comment("屬性");
             $table->string('gender')->comment("性別");
