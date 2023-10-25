@@ -14,13 +14,13 @@ class CreateAreasTable extends Migration
     public function up()
     {
         Schema::create('areas', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('position');
-            $table->string('element');
-            $table->string('belief');
-            $table->string('god');
-            $table->string('ruler');
+            $table->id()->comment("編號(主鍵)");
+            $table->string('name')->comment("區域名稱")->nullable();
+            $table->string('position')->comment("位置")->nullable();
+            $table->string('element')->comment("元素")->nullable();
+            $table->string('belief')->comment("信仰")->nullable();
+            $table->string('god')->comment("信奉神明")->nullable();
+            $table->string('ruler')->comment("統治者")->nullable();
             $table->timestamps();
         });
     }
