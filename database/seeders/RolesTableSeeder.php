@@ -93,7 +93,7 @@ class RolesTableSeeder extends Seeder
             $random_datetime = Carbon::now()->subMonths(rand(0,12))->subRealDays(rand(0,31));
             DB::table('roles')->insert([
                 'name'=>$name,
-                'aid'=>rand(1,8),
+                'aid'=>rand(1,35),
                 'stars'=>rand(4,5),
                 'property'=>$property,
                 'gender'=>$gender,
