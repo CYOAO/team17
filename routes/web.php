@@ -13,6 +13,8 @@ use App\Http\Controllers\RolesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get("/",function(){
+    return redirect('roles');
+});
 Route::get('areas',[AreasController::class,'index'])->name('areas.index');
 Route::get('roles',[RolesController::class,'index'])->name('roles.index');
