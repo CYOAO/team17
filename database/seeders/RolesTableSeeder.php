@@ -40,6 +40,21 @@ class RolesTableSeeder extends Seeder
     }
 
 
+    /*function unique_rand($min,$max,$num){
+        $cont=0;
+        $return=array();
+        while ($count<$num){
+            $return[]=mt_rand($min,$max);
+            $return=array_flip(array_flip($return));
+            $count=count($return);
+        
+        }
+        shuffle($return);
+        return $return;
+    }*/
+
+    
+
     public function generateRandomProperty(){        //屬性
         $property =["風","岩","雷","草","水","火","冰"];
         return $property[rand(0,count($property)-1)];
@@ -80,7 +95,7 @@ class RolesTableSeeder extends Seeder
 
     public function run()
     {
-        for($i=0; $i<35; $i++)
+        for($i=0; $i<50; $i++)
         {
             $name = $this-> generateRandomName();
             $property = $this-> generateRandomProperty();
@@ -93,7 +108,7 @@ class RolesTableSeeder extends Seeder
             $random_datetime = Carbon::now()->subMonths(rand(0,12))->subRealDays(rand(0,31));
             DB::table('roles')->insert([
                 'name'=>$name,
-                'aid'=>rand(1,35),
+                'aid'=>rand()%25+1,
                 'stars'=>rand(4,5),
                 'property'=>$property,
                 'gender'=>$gender,

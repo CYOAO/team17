@@ -53,7 +53,7 @@ class AreasTableSeeder extends Seeder
     }
     public function run()
     {
-        for($i=0; $i<35; $i++)
+        for($i=0; $i<25; $i++)
         {
             $name = $this-> generateRandomName();
             $position = $this-> generateRandomPosition();
