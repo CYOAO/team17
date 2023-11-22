@@ -14,9 +14,12 @@ class AreasController extends Controller
      */
     public function index()
     {
-        //
-        return Area::all()->toArray();
-    }
+       //從Model拿資料
+       $a = Area::all()->toArray();
+       //把資料送給view
+       return view('areas.index')->with('areas',$a);
+   }
+    
 
     /**
      * Show the form for creating a new resource.
