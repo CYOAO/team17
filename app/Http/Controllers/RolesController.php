@@ -16,8 +16,11 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //
-        return Role::all()->toArray();
+          //從Model拿資料
+          $r = Role::all()->toArray();
+          //把資料送給view
+          //to-do
+          return view('roles.index')->with('roles',$r);
     }
 
     /**
