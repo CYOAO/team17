@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Genshin網站 - 列出所有角色')
+@section('title', 'Genshin網站 - 列出所有區域')
 
 @section('genshin_contents')
 <h1>列出所有區域</h1>
