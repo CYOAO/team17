@@ -1,10 +1,9 @@
-<html>
 
-<head>
-    <title>列出所有區域</title>
-</head>
+@extends('app')
 
-<body>
+@section('title', 'Genshin網站 - 列出所有區域')
+
+@section('Genshin_contents')
 <h1>列出所有區域</h1>
 
 <table>
@@ -38,5 +37,4 @@
     @endfor
 </table>
 
-</body>
-</html>
+@endsection
