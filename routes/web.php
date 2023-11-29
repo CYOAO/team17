@@ -16,5 +16,20 @@ use App\Http\Controllers\RolesController;
 Route::get("/",function(){
     return redirect('roles');
 });
+Route::get("/",function(){
+    return redirect('areas');
+});
 Route::get('areas',[AreasController::class,'index'])->name('areas.index');
+
+
+Route::get('areas/{id}',[AreasController::class,'show'])->where('id', '[0-9]+')->name('areas.show');
+
+Route::get('areas/{id}/edit',[AreasController::class,'edit'])->where('id', '[0-9]+')->name('areas.edit');
+
+//顯示所有角色資料
 Route::get('roles',[RolesController::class,'index'])->name('roles.index');
+
+//顯示單一角色資料
+Route::get('roles/{id}',[RolesController::class,'show'])->where('id', '[0-9]+')->name('roles.show');
+//修改單一角色資料
+Route::get('roles/{id}/edit',[RolesController::class,'edit'])->where('id', '[0-9]+')->name('roles.edit');

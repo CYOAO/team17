@@ -50,7 +50,7 @@ class AreasController extends Controller
      */
     public function show($id)
     {
-        //
+        return Area::findOrFail($id)->toArray();
     }
 
     /**
@@ -61,7 +61,7 @@ class AreasController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Area::findOrFail($id)->toArray();
     }
 
     /**

@@ -52,7 +52,7 @@ class RolesController extends Controller
      */
     public function show($id)
     {
-        //
+        return Role::findOrFail($id)->toArray();
     }
 
     /**
@@ -63,7 +63,7 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return role::findOrFail($id)->toArray();
     }
 
     /**
