@@ -2,6 +2,8 @@
 
 @section('title', 'Genshin網站 - 列出所有角色')
 
+@section('genshin_theme', 'Genshin 角色')
+
 @section('genshin_contents')
 <h1>列出所有角色</h1>
 <table>
@@ -24,26 +26,26 @@
         <th>操作3</th>
 
     </tr>
-    @for($i=0; $i<count($roles); $i++)
+    @foreach ($roles as $role)
         <tr>
-            <td>{{$roles[$i]['id']}}</td>
-            <td>{{$roles[$i]['name']}}</td>
-            <td>{{$roles[$i]['aid']}}</td>
-            <td>{{$roles[$i]['stars']}}</td>
-            <td>{{$roles[$i]['property']}}</td>
-            <td>{{$roles[$i]['gender']}}</td>
-            <td>{{$roles[$i]['weapon']}}</td>
-            <td>{{$roles[$i]['constellation']}}</td>
-            <td>{{$roles[$i]['permanent_limited']}}</td>
-            <td>{{$roles[$i]['race']}}</td>
-            <td>{{$roles[$i]['birthdate']}}</td>
-            <td>{{$roles[$i]['height']}}</td>
-            <td>{{$roles[$i]['version']}}</td>
-            <td><a href="{{route('roles.show',['id'=>$roles[$i]['id']]) }}">顯示</a></td>
-            <td><a href="{{route('roles.edit',['id'=>$roles[$i]['id']]) }}">修改</a></td>
+            <td>{{$role->id}}</td>
+            <td>{{$role->name}}</td>
+            <td>{{$role->aid}}</td>
+            <td>{{$role->stars}}</td>
+            <td>{{$role->property}}</td>
+            <td>{{$role->gender}}</td>
+            <td>{{$role->weapon}}</td>
+            <td>{{$role->constellation}}</td>
+            <td>{{$role->permanent_limited}}</td>
+            <td>{{$role->race}}</td>
+            <td>{{$role->birthdate}}</td>
+            <td>{{$role->height}}</td>
+            <td>{{$role->version}}</td>
+            <td><a href="{{route('roles.show',['id'=>$role->id]) }}">顯示</a></td>
+            <td><a href="{{route('roles.edit',['id'=>$role->id]) }}">修改</a></td>
             <td>刪除</td>
         </tr>
 
-    @endfor
+    @endforeach
 </table>
 @endsection
