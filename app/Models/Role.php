@@ -23,4 +23,10 @@ class Role extends Model
         'height',
         'version'
     ];
+
+    public function area()
+    {
+        return $this->belongsTo('App\Models\Area','aid','id');
+    }
+
 }

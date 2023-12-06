@@ -28,7 +28,7 @@
         <tr>
             <td>{{$role->id}}</td>
             <td>{{$role->name}}</td>
-            <td>{{$role->aid}}</td>
+            <td>{{$role->area->name}}</td>
             <td>{{$role->stars}}</td>
             <td>{{$role->property}}</td>
             <td>{{$role->gender}}</td>
