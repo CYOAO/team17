@@ -23,6 +23,12 @@ class Area extends Model
         return $this->hasMany('App\Models\Role','aid');
     
     }
+
+    public function delete()
+    {
+        $this->roles()->delete();
+        return parent::delete();
+    }
     
     
 }
