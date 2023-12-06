@@ -5,9 +5,10 @@
 @section('genshin_theme', '您所選取的角色資料')
 
 @section('genshin_contents')
+<h1>顯示特定角色</h1>
 角色編號:{{$role->id}}<br/>
 角色名稱:{{$role->name}}<br/>
-角色區域編號:{{$role->aid}}<br/>
+角色所在區域:{{$role->area->name}}<br/>
 角色星數:{{$role->stars}}<br/>
 角色屬性:{{$role->property}}<br/>
 角色性別:{{$role->gender}}<br/>

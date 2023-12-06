@@ -10,7 +10,7 @@
     <tr>
         <th>編號</th>
         <th>角色名稱</th>
-        <th>區域編號</th>
+        <th>所在區域</th>
         <th>星數</th>
         <th>屬性</th>
         <th>性別</th>
@@ -30,7 +30,7 @@
         <tr>
             <td>{{$role->id}}</td>
             <td>{{$role->name}}</td>
-            <td>{{$role->aid}}</td>
+            <td>{{$role->area->name}}</td>
             <td>{{$role->stars}}</td>
             <td>{{$role->property}}</td>
             <td>{{$role->gender}}</td>

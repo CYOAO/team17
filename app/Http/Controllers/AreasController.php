@@ -52,8 +52,9 @@ class AreasController extends Controller
     {
         //從Model拿資料
         $area = Area::findOrFail($id);
+        $roles=$area->roles;
         //把資料送給view
-        return view('areas.show')->with('area',$area);
+        return view('areas.show',['area'=>$area,'roles'=>$roles]);
     }
 
     /**

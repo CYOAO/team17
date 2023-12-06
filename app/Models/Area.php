@@ -18,4 +18,8 @@ class Area extends Model
         'ruler'
 
     ];
+    public function roles()
+    {
+        return $this->hasMany('App\Models\Role','aid');
+    }
 }
