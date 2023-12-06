@@ -23,4 +23,9 @@ class Role extends Model
         'height',
         'version'
     ];
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role', 'aid', 'id');
+    }
 }

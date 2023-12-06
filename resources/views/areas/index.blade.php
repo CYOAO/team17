@@ -3,6 +3,8 @@
 
 @section('title', 'Genshin網站 - 列出所有區域')
 
+@section('Genshin_theme', '您所選取的區域資料')
+
 @section('Genshin_contents')
 <h1>列出所有區域</h1>
 
@@ -20,21 +22,21 @@
         <th>操作3</th>
         
     </tr>
-        @for($i=0; $i<count($areas); $i++)
+        @foreach($areas as $area)
             <tr>
-                <td>{{$areas[$i]['id']}}</td>
-                <td>{{$areas[$i]['name']}}</td>
-                <td>{{$areas[$i]['position']}}</td>
-                <td>{{$areas[$i]['element']}}</td>
-                <td>{{$areas[$i]['belief']}}</td>
-                <td>{{$areas[$i]['god']}}</td>
-                <td>{{$areas[$i]['ruler']}}</td>
-                <td><a href="{{route('areas.show',['id'=>$areas[$i]['id']]) }}">顯示</a></td>
-                <td><a href="{{route('areas.edit',['id'=>$areas[$i]['id']]) }}">修改</a></td>
+                <td>{{$area->id }}</td>
+                <td>{{$area->name }}</td>
+                <td>{{$area->position }}</td>
+                <td>{{$area->element }}</td>
+                <td>{{$area->belief }}</td>
+                <td>{{$area->god }}</td>
+                <td>{{$area->ruler }}</td>
+                <td><a href="{{route('areas.show',['id'=>$area->id ]) }}">顯示</a></td>
+                <td><a href="{{route('areas.edit',['id'=>$area->id ]) }}">修改</a></td>
                 <td>刪除</td>
             </tr>
 
-    @endfor
+    @endforeach
 </table>
 
 @endsection

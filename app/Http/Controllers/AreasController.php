@@ -15,10 +15,10 @@ class AreasController extends Controller
     public function index()
     {
         //從Model拿資料
-        $a = Area::all()->toArray();
+        $areas = Area::all();
         //把資料送給view
         //to-do
-        return view('areas.index')->with('areas',$a);
+        return view('areas.index')->with('areas',$areas);
     }
 
     /**
@@ -50,7 +50,12 @@ class AreasController extends Controller
      */
     public function show($id)
     {
-        return Area::findOrFail($id)->toArray();
+         //從Model拿資料
+         $area = Area::findOrFail($id);
+         $roles = $area->roles;
+         //把資料送給view
+         //to-do
+         return view('areas.show', ['area'=>$area, 'roles'=>$roles]); 
     }
 
     /**
