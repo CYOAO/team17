@@ -31,3 +31,7 @@ Route::get('roles',[RolesController::class,'index'])->name('roles.index');
 Route::get('roles/{id}', [RolesController::class, 'show'])->where('id', '[0-9]+')->name('roles.show');
 // 修改單一角色表單
 Route::get('roles/{id}/edit', [RolesController::class, 'edit'])->where('id', '[0-9]+')->name('roles.edit');
+// 刪除單一球員資料
+Route::delete('roles/delete/{id}', [RolesController::class, 'destroy'])->where('id', '[0-9]+')->name('roles.destroy');
+// 刪除單一球隊及旗下球員資料
+Route::delete('areas/delete/{id}', [AreasController::class, 'destroy'])->where('id', '[0-9]+')->name('areas.destroy');
