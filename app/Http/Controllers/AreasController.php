@@ -65,7 +65,7 @@ class AreasController extends Controller
      */
     public function edit($id)
     {
-        return Area::findOrFail($id)->toArray();
+        /*return Area::findOrFail($id)->toArray();*/
     }
 
     /**
@@ -88,6 +88,8 @@ class AreasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $area = Area::findOrFail($id);
+        $area->delete();
+        return redirect('areas');
     }
 }

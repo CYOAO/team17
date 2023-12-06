@@ -66,7 +66,7 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        return Role::findOrFail($id)->toArray();
+        /*return Role::findOrFail($id)->toArray();*/
     }
 
     /**
@@ -89,6 +89,8 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role = Role::findOrFail($id);
+        $role->delete();
+        return redirect('roles');
     }
 }

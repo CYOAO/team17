@@ -30,9 +30,7 @@
         <th>生日</th>
         <th>身高</th>
         <th>版本</th>
-        <th>操作1</th>
-        <th>操作2</th>
-        <th>操作3</th>
+        
 
     </tr>
     @foreach ($roles as $role)
@@ -50,9 +48,7 @@
             <td>{{$role->birthdate}}</td>
             <td>{{$role->height}}</td>
             <td>{{$role->version}}</td>
-            <td><a href="{{route('roles.show',['id'=>$role->id]) }}">顯示</a></td>
-            <td><a href="{{route('roles.edit',['id'=>$role->id]) }}">修改</a></td>
-            <td>刪除</td>
+            
         </tr>
 
     @endforeach
