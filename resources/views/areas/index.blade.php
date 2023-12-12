@@ -31,9 +31,15 @@
                 <td>{{$area->belief }}</td>
                 <td>{{$area->god }}</td>
                 <td>{{$area->ruler }}</td>
-                <td><a href="{{route('areas.show',['id'=>$area->id ]) }}">顯示</a></td>
-                <td><a href="{{route('areas.edit',['id'=>$area->id ]) }}">修改</a></td>
-                <td>刪除</td>
+                <td><a href="{{route('areas.show',['id'=>$area->id]) }}">顯示</a></td>
+                <td><a href="{{route('areas.edit',['id'=>$area->id]) }}">修改</a></td>
+                <td>
+                <form action="{{ url('/areas/delete', ['id' => $area->id]) }}" method="post">
+                <input class="btn btn-default" type="submit" value="刪除" />
+                @method('delete')
+                @csrf
+                </form>
+                </td>
             </tr>
 
     @endforeach
