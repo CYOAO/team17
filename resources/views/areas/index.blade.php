@@ -3,7 +3,10 @@
 @section('title', 'Genshin網站 - 列出所有角色')
 
 @section('genshin_contents')
-<h1>列出所有區域</h1>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    <a href="{{ route('areas.create') }} ">新增區域</a>
+    <a href="{{ route('areas.index') }} ">所有區域</a>
+</div>
 <table>
     <tr>
         <th>編號</th>

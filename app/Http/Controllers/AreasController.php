@@ -29,7 +29,7 @@ class AreasController extends Controller
      */
     public function create()
     {
-        //
+        return view('areas.create');
     }
 
     /**
@@ -40,7 +40,23 @@ class AreasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('name');
+        $position = $request->input('position');
+        $element = $request->input('element');
+        $belief = $request->input('belief');
+        $god = $request->input('god');
+        $ruler = $request->input('ruler');
+
+        Area::create([
+            'name' => $name,
+            'position' => $position,
+            'element' => $element,
+            'belief' => $belief,
+            'god' => $god,
+            'ruler' => $ruler
+        ]);
+
+        return redirect('areas');
     }
 
     /**
@@ -66,7 +82,8 @@ class AreasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $area = Area::findOrFail($id);
+        return view('areas.edit', ['area'=>$area]);
     }
 
     /**
@@ -78,7 +95,17 @@ class AreasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $area = Area::findOrFail($id);
+
+        $area->name = $request->input('name');
+        $area->position = $request->input('position');
+        $area->element = $request->input('element');
+        $area->belief = $request->input('belief');
+        $area->god = $request->input('god');
+        $area->ruler = $request->input('ruler');
+        $area->save();
+
+        return redirect('areas');
     }
 
     /**
