@@ -24,8 +24,8 @@ class Role extends Model
         'version'
     ];
 
-    public function role()
+    public function area()
     {
-        return $this->belongsTo('App\Models\Role', 'aid', 'id');
+        return $this->belongsTo('App\Models\Area', 'aid', 'id');
     }
 }

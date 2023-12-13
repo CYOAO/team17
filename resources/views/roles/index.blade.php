@@ -2,8 +2,13 @@
 
 @section('title', 'Genshin網站- 列出所有角色')
 
+@section('Genshin_theme', 'Genshin 角色')
+
 @section('Genshin_contents')
-<h1>列出所有角色</h1>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+     <a href="{{ route('roles.create') }} ">新增角色</a>
+     <a href="{{ route('roles.index') }} ">所有角色</a>
+</div>
 <table>
     <tr>
         <th>編號</th>
@@ -26,28 +31,28 @@
 
     @foreach ($roles as $role)
         <tr>
-                <td>{{$roles->id }}</td>
-                <td>{{$roles->name }}</td>
+                <td>{{$role->id }}</td>
+                <td>{{$role->name }}</td>
                 <td>{{$role->area->name}}</td>
-                <td>{{$roles->stars }}</td>
-                <td>{{$roles->property }}</td>
-                <td>{{$roles->gender }}</td>
-                <td>{{$roles->weapon }}</td>
-                <td>{{$roles->constellation }}</td>
-                <td>{{$roles->permanent_limited }}</td>
-                <td>{{$roles->race }}</td>
-                <td>{{$roles->birthdate }}</td>
-                <td>{{$roles->height }}</td>
-                <td>{{$roles->versio }}</td>
-                <td><a href="{{route('roles.show',['id'=>$roles->id]) }}">顯示</a></td>
-                <td><a href="{{route('roles.edit',['id'=>$roles->id]) }}">修改</a></td>
+                <td>{{$role->stars }}</td>
+                <td>{{$role->property }}</td>
+                <td>{{$role->gender }}</td>
+                <td>{{$role->weapon }}</td>
+                <td>{{$role->constellation }}</td>
+                <td>{{$role->permanent_limited }}</td>
+                <td>{{$role->race }}</td>
+                <td>{{$role->birthdate }}</td>
+                <td>{{$role->height }}</td>
+                <td>{{$role->version }}</td>
+                <td><a href="{{route('roles.show',['id'=>$role->id]) }}">顯示</a></td>
+                <td><a href="{{route('roles.edit',['id'=>$role->id]) }}">修改</a></td>
                 <td>
-                <form action="{{ url('/roles/delete', ['id' => $role->id]) }}" method="post">
-                <input class="btn btn-default" type="submit" value="刪除" />
-                @method('delete')
-                @csrf
+                     <form action="{{ url('/roles/delete', ['id' => $role->id]) }}" method="post">
+                         <input class="btn btn-default" type="submit" value="刪除" />
+                     @method('delete')
+                     @csrf
                 </form>
-                </td>
+            </td>
         </tr>       
         @endforeach   
 </table>     

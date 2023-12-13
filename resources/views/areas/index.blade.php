@@ -6,7 +6,10 @@
 @section('Genshin_theme', '您所選取的區域資料')
 
 @section('Genshin_contents')
-<h1>列出所有區域</h1>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+     <a href="{{ route('areas.create') }} ">新增區域</a>
+     <a href="{{ route('areas.index') }} ">所有區域</a>
+</div>
 
 <table>
     <tr>
