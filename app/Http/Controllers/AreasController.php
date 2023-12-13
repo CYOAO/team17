@@ -28,7 +28,7 @@ class AreasController extends Controller
      */
     public function create()
     {
-        //
+        return view('areas.create');
     }
 
     /**
@@ -65,7 +65,8 @@ class AreasController extends Controller
      */
     public function edit($id)
     {
-        /*return Area::findOrFail($id)->toArray();*/
+        $area = Area::findOrFail($id);
+        return view('areas.edit', ['area' =>$area]);
     }
 
     /**

@@ -5,7 +5,10 @@
 @section('genshin_theme', 'Genshin 角色')
 
 @section('genshin_contents')
-<h1>列出所有角色</h1>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    <a href="{{ route('roles.create') }} ">新增角色</a>
+    <a href="{{ route('roles.index') }} ">所有角色</a>
+</div>
 <table>
     <tr>
         <th>編號</th>
@@ -40,7 +43,7 @@
             <td>{{$role->race}}</td>
             <td>{{$role->birthdate}}</td>
             <td>{{$role->height}}</td>
-            <td>{{$role->version}}</td>
+            <td>{{$role->height}}</td>
             <td><a href="{{route('roles.show',['id'=>$role->id]) }}">顯示</a></td>
             <td><a href="{{route('roles.edit',['id'=>$role->id]) }}">修改</a></td>
             <td>
