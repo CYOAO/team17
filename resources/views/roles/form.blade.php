@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('aid', '所在區域:') !!}
-    
+    {!! Form::select('aid', $areas, $areaSelected, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('stars', '星數:') !!}

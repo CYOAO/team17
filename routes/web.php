@@ -34,6 +34,9 @@ Route::get('areas/{id}/edit', [AreasController::class, 'edit'])->where('id', '[0
 
 Route::patch('areas/update/{id}', [AreasController::class, 'update'])->where('id', '[0-9]+')->name('areas.update');
 
+Route::post('areas/store', [AreasController::class, 'store'])->where('id', '[0-9]+')->name('areas.store');
+
+
 
 //顯示所有角色資料
 Route::get('roles',[RolesController::class,'index'])->name('roles.index');
@@ -51,3 +54,5 @@ Route::get('roles/create',[RolesController::class, 'create'])->name('roles.creat
 Route::get('roles/{id}/edit', [RolesController::class, 'edit'])->where('id', '[0-9]+')->name('roles.edit');
 // 修改角色
 Route::patch('roles/update/{id}', [RolesController::class, 'update'])->where('id', '[0-9]+')->name('roles.update');
+// 儲存新角色資料
+Route::post('roles/store', [RolesController::class, 'store'])->where('id', '[0-9]+')->name('roles.store');

@@ -43,7 +43,7 @@
             <td>{{$role->race}}</td>
             <td>{{$role->birthdate}}</td>
             <td>{{$role->height}}</td>
-            <td>{{$role->height}}</td>
+            <td>{{$role->version}}</td>
             <td><a href="{{route('roles.show',['id'=>$role->id]) }}">顯示</a></td>
             <td><a href="{{route('roles.edit',['id'=>$role->id]) }}">修改</a></td>
             <td>
