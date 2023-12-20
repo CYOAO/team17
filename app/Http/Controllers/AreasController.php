@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateAreaRequest;
 use App\Models\Area;
 
 class AreasController extends Controller
@@ -37,7 +37,7 @@ class AreasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateAreaRequest $request)
     {
         $name = $request->input('name');
         $position = $request->input('position');
@@ -90,7 +90,7 @@ class AreasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateAreaRequest $request, $id)
     {
         $area = Area::findOrFail($id);
 
