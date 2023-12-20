@@ -15,7 +15,7 @@ class CreateAreasTable extends Migration
     {
         Schema::create('areas', function (Blueprint $table) {
             $table->id()->comment("編號(主鍵)");
-            $table->string('name')->comment("區域名稱")->nullable();
+            $table->string('name')->comment("區域名稱");
             $table->string('position')->comment("位置")->nullable();
             $table->string('element')->comment("元素")->nullable();
             $table->string('belief')->comment("信仰")->nullable();

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\Area;
+use App\Http\Requests\CreateRoleRequest;
 
 
-use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
@@ -40,7 +40,7 @@ class RolesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRoleRequest $request)
     {
         $name = $request->input('name');
         $aid = $request->input('aid');
@@ -106,7 +106,7 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateRoleRequest $request, $id)
     {
         $role = Role::findOrFail($id);
 
@@ -115,7 +115,7 @@ class RolesController extends Controller
         $role->stars = $request->input('stars');
         $role->property = $request->input('property');
         $role->gender = $request->input('gender');
-        $role->weapon = $request->input('weapon');
+        $role->weapon = $request->input('weapon');  
         $role->constellation = $request->input('constellation');
         $role->permanent_limited = $request->input('permanent_limited');
         $role->race = $request->input('race');
