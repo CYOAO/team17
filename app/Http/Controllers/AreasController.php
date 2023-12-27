@@ -23,6 +23,23 @@ class AreasController extends Controller
 
     }
 
+
+    public function sea()
+    {
+        //從Model拿資料
+        $areas = Area::position('海域')->get();
+        //把資料送給view
+        return view('areas.index')->with('areas',$areas);
+    }
+    public function land()
+    {
+        //從Model拿資料
+        $areas = Area::position('提瓦特大陸')->get();
+        //把資料送給view
+        return view('areas.index')->with('areas',$areas);
+    }
+
+    
     /**
      * Show the form for creating a new resource.
      *

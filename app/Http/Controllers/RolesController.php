@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\Area;
 use App\Http\Requests\CreateRoleRequest;
+use Illuminate\Http\Request;
 
 
 
@@ -14,14 +15,40 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        //從Model 拿資料
-        $roles = Role::all();
+        //從Model拿資料
+        $roles = Role::paginate(25);
+        $genders = Role::allGenders()->pluck('roles.gender', 'roles.gender');
         //把資料送給view
-        //to-do
-        return view('roles.index')->with('roles',$roles);
+        return view('roles.index', ['roles' => $roles, 'genders'=>$genders, 'selectedGender'=>null]);
+    }   
+
+    public function fourstars()
+    {
+        //從Model拿資料
+        $roles = Role::stars('4')->paginate(25);
+        $genders = Role::allGenders()->pluck('roles.gender', 'roles.gender');
+        //把資料送給view
+        return view('roles.index', ['roles' => $roles, 'genders'=>$genders, 'selectedGender'=>null]);
     }
+    public function fivestars()
+    {
+        //從Model拿資料
+        $roles = Role::stars('5')->paginate(25);
+        $genders = Role::allGenders()->pluck('roles.gender', 'roles.gender');
+        //把資料送給view
+        return view('roles.index', ['roles' => $roles, 'genders'=>$genders, 'selectedGender'=>null]);
+    }
+
+    public function gender(Request $request)
+    {
+        $roles = Role::gender($request->input('gen'))->paginate(25);
+        $genders = Role::allGenders()->pluck('roles.gender', 'roles.gender');
+        $selectedGender = $request->input('gen');
+        return view('roles.index', ['roles' => $roles, 'genders'=>$genders, 'selectedGender'=>$selectedGender]);
+    }    
 
     /**
      * Show the form for creating a new resource.

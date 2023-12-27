@@ -47,3 +47,11 @@ Route::patch('areas/update/{id}', [AreasController::class, 'update'])->where('id
 Route::post('roles/store', [RolesController::class, 'store'])->where('id', '[0-9]+')->name('roles.store');
 // 儲存新區域資料
 Route::post('areas/store', [AreasController::class, 'store'])->name('areas.store');
+
+Route::get('areas/land',[AreasController::class,'land'])->name('areas.land');
+Route::get('areas/sea',[AreasController::class,'sea'])->name('areas.sea');
+
+Route::get('roles/fourstars',[RolesController::class,'fourstars'])->name('roles.fourstars');
+Route::get('roles/fivestars',[RolesController::class,'fivestars'])->name('roles.fivestars');
+
+Route::get('roles/gender', [RolesController::class, 'gender'])->name('roles.gender');
