@@ -8,6 +8,8 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('areas.create') }} ">新增區域</a>
     <a href="{{ route('areas.index') }} ">所有區域</a>
+    <a href="{{ route('areas.land') }} ">陸地</a>
+    <a href="{{ route('areas.sea') }} ">海域</a>
 </div>
 <table>
     <tr>

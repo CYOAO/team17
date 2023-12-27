@@ -28,4 +28,9 @@ class Area extends Model
         $this->roles()->delete();
         return parent::delete();
     }
+
+    public function scopePosition($query, $position)
+    {
+        $query->where('position', '=',$position);
+    }
 }
