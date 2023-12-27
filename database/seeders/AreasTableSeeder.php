@@ -23,7 +23,7 @@ class AreasTableSeeder extends Seeder
     }
 
     public function generateRandomPosition(){        //位置
-        $position =["提瓦特大陸西部","提瓦特大陸西南部","提瓦特大陸西南部海域","提瓦特大陸西北部","提瓦特大陸南部"];
+        $position =["提瓦特大陸","海域"];
         return $position[rand(0,count($position)-1)];
     }
 

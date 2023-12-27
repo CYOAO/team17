@@ -30,5 +30,10 @@ class Area extends Model
         return parent::delete();
     }
     
+    public function scopePosition($query, $position)
+    {
+        $query->where('position', '=',$position);
+    }
+    
     
 }

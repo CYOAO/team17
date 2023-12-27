@@ -8,6 +8,14 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
      <a href="{{ route('roles.create') }} ">新增角色</a>
      <a href="{{ route('roles.index') }} ">所有角色</a>
+     <a href="{{ route('roles.fourstars') }} ">四星角色</a>
+     <a href="{{ route('roles.fivestars') }} ">五星角色</a>
+     <form action="{{ url('roles/gender') }}" method='GET'>
+        {!! Form::label('gen', '選取性別：') !!}
+        {!! Form::select('gen', $genders, $selectedGender, ['class' => 'form-control']) !!}
+        <input class="btn btn-default", type="submit", value="查詢" />
+        @csrf
+    </form>    
 </div>
 <table>
     <tr>
@@ -55,6 +63,7 @@
             </td>
         </tr>       
         @endforeach   
-</table>     
+</table>
+{{ $roles->withQueryString()->links() }}     
 
 @endsection

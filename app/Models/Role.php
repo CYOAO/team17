@@ -28,4 +28,19 @@ class Role extends Model
     {
         return $this->belongsTo('App\Models\Area', 'aid', 'id');
     }
+    
+    public function scopeStars($query, $stars)
+    {
+        $query->where('stars', '=',$stars);
+    }
+
+    public function scopeAllGenders($query)
+    { 
+        return $query->select('gender')->groupBy('gender');
+    }
+
+    public function scopeGender($query, $gen)
+    {
+        return $query->where('gender', '=', $gen);
+    }    
 }
