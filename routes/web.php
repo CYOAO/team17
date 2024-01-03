@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AreasController;
 use App\Http\Controllers\RolesController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,7 @@ use App\Http\Controllers\RolesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['auth'])->group(function () {
 Route::get("/",function(){
     return redirect('roles');
 });
@@ -30,15 +32,15 @@ Route::get('areas/{id}',[AreasController::class,'show'])->where('id', '[0-9]+')-
 
 Route::get('areas/{id}/edit',[AreasController::class,'edit'])->where('id', '[0-9]+')->name('areas.edit');
 
-Route::delete('areas/delete/{id}', [AreasController::class, 'destroy'])->where('id', '[0-9]+')->name('areas.destroy');
+Route::delete('areas/delete/{id}', [AreasController::class, 'destroy'])->where('id', '[0-9]+')->name('areas.destroy')->middleware('can:admin');
 
-Route::get('areas/create',[AreasController::class, 'create'])->name('areas.create');
+Route::get('areas/create',[AreasController::class, 'create'])->name('areas.create')->middleware('can:admin');
 
 Route::get('areas/{id}/edit', [AreasController::class, 'edit'])->where('id', '[0-9]+')->name('areas.edit');
 
 Route::patch('areas/update/{id}', [AreasController::class, 'update'])->where('id', '[0-9]+')->name('areas.update');
 
-Route::post('areas/store', [AreasController::class, 'store'])->where('id', '[0-9]+')->name('areas.store');
+Route::post('areas/store', [AreasController::class, 'store'])->where('id', '[0-9]+')->name('areas.store')->middleware('can:admin');
 
 
 
@@ -55,14 +57,19 @@ Route::get('roles/{id}',[RolesController::class,'show'])->where('id', '[0-9]+')-
 //修改單一角色表單
 Route::get('roles/{id}/edit',[RolesController::class,'edit'])->where('id', '[0-9]+')->name('roles.edit');
 
-Route::delete('roles/delete/{id}', [RolesController::class, 'destroy'])->where('id', '[0-9]+')->name('roles.destroy');
+Route::delete('roles/delete/{id}', [RolesController::class, 'destroy'])->where('id', '[0-9]+')->name('roles.destroy')->middleware('can:admin');
 
-Route::get('roles/create',[RolesController::class, 'create'])->name('roles.create');
+Route::get('roles/create',[RolesController::class, 'create'])->name('roles.create')->middleware('can:admin');
 // 修改角色表單
 Route::get('roles/{id}/edit', [RolesController::class, 'edit'])->where('id', '[0-9]+')->name('roles.edit');
 // 修改角色
 Route::patch('roles/update/{id}', [RolesController::class, 'update'])->where('id', '[0-9]+')->name('roles.update');
 // 儲存新角色資料
-Route::post('roles/store', [RolesController::class, 'store'])->where('id', '[0-9]+')->name('roles.store');
+Route::post('roles/store', [RolesController::class, 'store'])->where('id', '[0-9]+')->name('roles.store')->middleware('can:admin');
 
 Route::get('roles/gender', [RolesController::class, 'gender'])->name('roles.gender');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

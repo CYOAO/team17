@@ -94,6 +94,8 @@ class AreasController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+
         $area = Area::findOrFail($id);
         return view('areas.edit', ['area' =>$area]);
     }
