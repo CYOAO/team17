@@ -120,6 +120,7 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
         $role = Role::findOrFail($id);
         $areas = Area::orderBy('areas.id', 'asc')->pluck('areas.name', 'areas.id');
         $selected_tags = $role->area->id;

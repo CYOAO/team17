@@ -4,7 +4,9 @@
 
 @section('genshin_contents')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    @can('admin')
     <a href="{{ route('areas.create') }} ">新增區域</a>
+    @endcan
     <a href="{{ route('areas.index') }} ">所有區域</a>
     <a href="{{ route('areas.land') }} ">陸地</a>
     <a href="{{ route('areas.sea') }} ">海域</a>
@@ -19,8 +21,12 @@
         <th>信奉神明</th>
         <th>統治者</th>
         <th>操作1</th>
+        @can('admin')
         <th>操作2</th>
         <th>操作3</th>
+        @elsecan('manager')
+        <th>操作2</th>
+        @endcan
 
     </tr>
     @foreach($areas as $area )
@@ -33,6 +39,7 @@
             <td>{{$area->god}}</td>
             <td>{{$area->ruler}}</td>
             <td><a href="{{route('areas.show',['id'=>$area->id]) }}">顯示</a></td>
+            @can('admin')
             <td><a href="{{route('areas.edit',['id'=>$area->id]) }}">修改</a></td>
             <td>
                 <form action="{{ url('/areas/delete', ['id' => $area->id]) }}" method="post">
@@ -41,6 +48,9 @@
                     @csrf
                 </form>
             </td>
+            @elsecan('manager')
+            <td><a href="{{ route('areas.edit', ['id'=>$area->id]) }}">修改</a></td>    
+            @endcan
         </tr>
 
     @endforeach
